@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Slideshow</title>
+    <style>
+        /* CSS cho giao diện */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #slideshow {
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Slideshow</h1>
+    <div id="slideshow">
+        <img src="image1.jpg" alt="Hình ảnh 1">
+        <img src="image2.jpg" alt="Hình ảnh 2">
+        <img src="image3.jpg" alt="Hình ảnh 3">
+    </div>
+
+    <script>var currentImage = 0;
+        var images = document.querySelectorAll("#slideshow img");
+
+        function nextSlide() {
+            images[currentImage].style.display = "none";
+            currentImage = (currentImage + 1) % images.length;
+            images[currentImage].style.display = "block";
+        }
+
+        // Tự động chuyển slide sau mỗi 3 giây (3000ms)
+        setInterval(nextSlide, 3000);</script>
+</body>
+</html>

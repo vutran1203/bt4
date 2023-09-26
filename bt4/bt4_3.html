@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* CSS để thay đổi màu nền và màu chữ */
+        body {
+            background-color: white; /* Màu nền mặc định */
+            color: black; /* Màu chữ mặc định */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tạo các textbox và nút -->
+    <input type="text" id="MauNen" placeholder="Màu Nền">
+    <input type="text" id="MauChu" placeholder="Màu Chữ">
+    <input type="text" id="TieuDe" placeholder="Tiêu Đề">
+    <input type="text" id="TrangThai" placeholder="Trạng Thái">
+    <button id="ThayDoi">Thay đổi</button>
+
+    <script>
+        // Lắng nghe sự kiện click trên nút "Thay Đổi"
+        document.getElementById("ThayDoi").addEventListener("click", function () {
+            // Lấy giá trị từ các textbox
+            var mauNen = document.getElementById("MauNen").value;
+            var mauChu = document.getElementById("MauChu").value;
+            var tieuDe = document.getElementById("TieuDe").value;
+            var trangThai = document.getElementById("TrangThai").value;
+
+            // Thay đổi màu nền và màu chữ
+            document.body.style.backgroundColor = mauNen;
+            document.body.style.color = mauChu;
+
+            // Thay đổi tiêu đề của tài liệu
+            document.title = tieuDe;
+
+            // Thay đổi thanh trạng thái của cửa sổ trình duyệt
+            window.status = trangThai;
+        });
+    </script>
+
+</body>
+</html>

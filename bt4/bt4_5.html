@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Giải Phương Trình Bậc 2</title>
+    <style>
+        /* CSS cho giao diện */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #quadraticSolver {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Giải Phương Trình Bậc 2</h1>
+    <div id="quadraticSolver">
+        <input type="text" id="a" placeholder="Nhập hệ số a">
+        <input type="text" id="b" placeholder="Nhập hệ số b">
+        <input type="text" id="c" placeholder="Nhập hệ số c">
+        <button onclick="solveQuadratic()">Giải</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function solveQuadratic() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+
+            var discriminant = b * b - 4 * a * c;
+            var resultElement = document.getElementById("result");
+
+            if (discriminant > 0) {
+                var x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                var x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                resultElement.innerHTML = "Phương trình có 2 nghiệm:<br>x1 = " + x1 + "<br>x2 = " + x2;
+            } else if (discriminant == 0) {
+                var x = -b / (2 * a);
+                resultElement.innerHTML = "Phương trình có nghiệm kép:<br>x = " + x;
+            } else {
+                resultElement.innerHTML = "Phương trình vô nghiệm.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* CSS cho đồng hồ */
+        #clock {
+            font-size: 48px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Đồng hồ sẽ được hiển thị ở đây -->
+    <div id="clock"></div>
+
+    <script>// Hàm để cập nhật đồng hồ
+function updateClock() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+  var seconds = now.getSeconds();
+
+  // Định dạng thời gian để hiển thị dưới dạng hh:mm:ss
+  var timeString = hours.toString().padStart(2, '0') + ":" +
+                   minutes.toString().padStart(2, '0') + ":" +
+                   seconds.toString().padStart(2, '0');
+
+  // Hiển thị thời gian trên trang web
+  document.getElementById("clock").innerHTML = timeString;
+}
+
+// Cập nhật đồng hồ mỗi giây
+setInterval(updateClock, 1000);
+
+// Khởi chạy cập nhật lần đầu
+updateClock();</script>
+
+</body>
+</html>
